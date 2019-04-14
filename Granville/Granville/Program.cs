@@ -9,10 +9,6 @@ namespace Granville
 {
     class Program
     {
-        static void IsGranville(int numStart)
-        {
-            int i;
-        }
 
         static void Main(string[] args)
         {
@@ -33,13 +29,16 @@ namespace Granville
                 numThreads = int.Parse(args[0]);
             }
 
+            var granville = new Granville(numThreads);
+
             //Measure time
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
             //Create threads
             for (i = 0; i < numThreads; i++)
             {
-                var th = new Thread(() => IsGranville(i));
+                var num = i;
+                var th = new Thread(() => granville.IsGranville(num));
                 th.Start();
                 threads.Add(th);
             }
