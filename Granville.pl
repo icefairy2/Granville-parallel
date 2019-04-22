@@ -1,10 +1,11 @@
-granville(A, B, NT, Time) :-
+granville(A, B, NT, T) :-
+    statistics(walltime, _),
     retractall(in_set(_)),
     assert(in_set(1)),
     NT1 is NT - 1,
     create_granville_threads(A, B, NT, NT1, L),
     join_granville_threads(L),
-    statistics(runtime, [Time|_]).
+    statistics(walltime, [_|[T]]).
 
 create_granville_threads(A, B, NT, 0, [ID]) :-
     thread_create(start_granville_thread(A, 0, B, NT), ID, []),
