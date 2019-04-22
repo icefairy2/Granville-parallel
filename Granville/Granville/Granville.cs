@@ -10,7 +10,7 @@ namespace Granville
     public class Granville
     {
         private const int A = 2;
-        private const int B = 60000;
+        private const int B = 300000;
 
         private volatile int step;
 
