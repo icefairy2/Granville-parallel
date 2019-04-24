@@ -2,17 +2,18 @@
 #include <chrono>
 #include <omp.h>
 
-#define A 2
-#define B 100
-
 using namespace std;
+
+const int A = 2;
+const int B = 550000;
 
 int main(int argc, char *argv[])
 {
     int step;
 
     int set_size_S = 0;
-    int set_S[B - A];
+    int* set_S;
+    set_S = (int*)malloc((B - A) * sizeof(int));
 
     int start_num;
     int local_current_set_size_S = 0;

@@ -7,7 +7,7 @@
 #define BILLION 1000000000L
 
 #define A 2
-#define B 600000
+#define B 460000
 
 int step;
 
